@@ -11,9 +11,9 @@ The goal of this project is to bring the power of kubernetes into the light by m
     * ```kubectl apply -f dashboard-adminuser.yaml```
   * 3.2-Generate an access token using the command bellow
   * ```kubectl -n kubernetes-dashboard get secret $(kubectl -n kubernetes-dashboard get sa/admin-user -o jsonpath="{.secrets[0].name}") -o go-template="{{.data.token | base64decode}}"```
-  * 3.2-Deploye the recommmended yaml file that will deploy the kuberntes dashboard
+  * 3.2-Deploy the recommended yaml file that will deploy the kubernetes dashboard
     * ```kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml```
-  * 3.3-Run the kubernetes dashbord by using the command bellow and 
+  * 3.3-Run the kubernetes dashbord by using the command bellow
     * ```kubectl proxy```
   * 3.4-Navigate to http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/ and login using the access token
 * 4-Deploy all the workload inside the project folder using the command bellow
