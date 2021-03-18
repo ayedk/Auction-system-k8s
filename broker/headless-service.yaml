@@ -13,4 +13,4 @@ spec:
       port: 9092
       targetPort: 9092
   selector:
-    app: zookeeper
+    app: broker
