@@ -10,7 +10,7 @@ The goal of this project is to bring the power of kubernetes into the light by m
   * 3.1-Deploye the dashboard-adminuser.yaml file that will create an admin user role associate to the kubernates dashboard using the command bellow
     * ```kubectl apply -f dashboard-adminuser.yaml```
   * 3.2-Generate an access token using the command bellow
-  * kubectl -n kubernetes-dashboard get secret $(kubectl -n kubernetes-dashboard get sa/admin-user -o jsonpath="{.secrets[0].name}") -o go-template="{{.data.token | base64decode}}"
+  * ```kubectl -n kubernetes-dashboard get secret $(kubectl -n kubernetes-dashboard get sa/admin-user -o jsonpath="{.secrets[0].name}") -o go-template="{{.data.token | base64decode}}"```
   * 3.2-Deploye the recommmended yaml file that will deploy the kuberntes dashboard
     * kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
   * 3.3-Run the kubernetes dashbord by using the command bellow and 
