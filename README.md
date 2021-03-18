@@ -19,4 +19,4 @@ of a bidding-system-producer
 * 4-Deploy all the workload inside the project folder using the command bellow
   * kubectl apply -k project/
 * 5-Finally you will get smoething like this
-* ![image](https://user-images.githubusercontent.com/40581620/111620859-8bf1b200-87e7-11eb-875b-9102a2a31f38.png)
+![image](https://user-images.githubusercontent.com/40581620/111620859-8bf1b200-87e7-11eb-875b-9102a2a31f38.png)
