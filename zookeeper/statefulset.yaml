@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: zookeeper
+  labels:
+    app: zookeeper
+spec:
+  serviceName: "zookeeper-headless"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zookeeper
+  template:
+    metadata:
+      labels:
+        app: zookeeper
+    spec:
+      containers:
+      - name: zookeeper
+        image: ayedk/zookeeper:latest
+        imagePullPolicy: Always
+        ports:
+        - name: zk-client
+          containerPort: 2181
+          protocol: TCP
+        - name: zk-follower
+          containerPort: 2888
+          protocol: TCP
+        - name: zk-election
+          containerPort: 3888
+          protocol: TCP
+        env:
+        - name: ZOO_SERVERS
+          value: "server.1=zookeeper-0.zookeeper-headless.default:2888:3888;2181"
+        volumeMounts:
+        - name: zk-data
+          mountPath: /data
+        - name: zk-log
+          mountPath: /datalog
+  volumeClaimTemplates:
+  - metadata:
+      name: zk-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: standard
+      resources:
+        requests:
+          storage: 1Gi
+  - metadata:
+      name: zk-log
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: standard
+      resources:
+        requests:
+          storage: 1Gi
