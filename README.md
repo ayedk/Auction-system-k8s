@@ -1,6 +1,6 @@
-# bidding-systeme-in aszezsszs
-This a repostrie contain a banch of yamls files to setup a kafka broker in kubernetes with a simple kafka ui to manage kafka Topics and also it hase a deployment yaml file
-of a bidding-system-producer 
+# bidding-systeme-in kubernetes
+This a repostrie contain a banch of yamls files to setup a kafka broker in kubernetes with a simple kafka ui to manage kafka Topics and also it has a deployment yaml file
+of a kafka producer 
 
 * Steps
 * 1-Make shure that your virtualisation is activated in the bios level
