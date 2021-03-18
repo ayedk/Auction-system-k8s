@@ -20,8 +20,10 @@ The goal of this project is to bring the power of kubernetes into the light by m
   * ```kubectl apply -k Auction-system-k8s/zookeeper```
   * ```kubectl apply -k Auction-system-k8s/broker```
   * ```kubectl apply -k Auction-system-k8s/kafka-ui```
-  * 
+  * ```kubectl apply -k Auction-system-k8s/producer-service```
 * 5-Finally you will get smoething like this
 ![image](https://user-images.githubusercontent.com/40581620/111620859-8bf1b200-87e7-11eb-875b-9102a2a31f38.png)
 * 6-Expose Kafka ui by running the bellow command and navigate to http://localhost:9000
   * ```kubectl --namespace default port-forward svc/kafka-ui 9000```
+* 7-Expose the producer-service api by running the bellow command and navigate to http://localhost:8080
+  * ```kubectl --namespace default port-forward svc/producer-service 8080```
