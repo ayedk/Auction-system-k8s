@@ -8,7 +8,7 @@ The goal of this project is to bring the power of kubernetes into the light by m
   * Make sure that kubectl works correctly
 * 3-Deploy kubernetes dashboard to easily manage kubernetes objects
   * 3.1-Deploye the dashboard-adminuser.yaml file that will create an admin user role associate to the kubernates dashboard using the command bellow
-    * ```shell kubectl apply -f dashboard-adminuser.yaml```
+    * ```kubectl apply -f dashboard-adminuser.yaml```
   * 3.2-Generate an access token using the command bellow
   * kubectl -n kubernetes-dashboard get secret $(kubectl -n kubernetes-dashboard get sa/admin-user -o jsonpath="{.secrets[0].name}") -o go-template="{{.data.token | base64decode}}"
   * 3.2-Deploye the recommmended yaml file that will deploy the kuberntes dashboard
