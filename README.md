@@ -1,6 +1,13 @@
 # Real time Acution system in kubernetes
 The goal of this project is to bring the power of kubernetes into the light by making a simple proof of concept application **Real time Acution system** that we will deploy it into kubernetes cluster Minikube and see how kubernetes manage Scalability,Configuration,Logging,Back up and Monitring of the application so this repostrie contain a bunch of yamls files to help you setup a kafka broker in kubernetes with a simple kafka ui to manage kafka Topics and a deployment yaml file of a spring boot resful api that produce custom json object to kafka broker as example: {"buyer_id":"456","price":"863","product_id":"22"}.
 
+# Learning Resources :
+* kubernetes official documentation : https://kubernetes.io/docs/home/
+* Youtube Chanel:
+  * Tech World with Nana : https://www.youtube.com/c/TechWorldwithNana
+  * Kode Kloud : https://www.youtube.com/channel/UCSWj8mqQCcrcBlXPi4ThRDQ
+* Udemy Courses :
+  * 
 # Steps You need to Follow to get the kubernetes cluster running :
 * 1-Make sure that your virtualisation is activated in the bios level
 * 2-Download and install Minikube https://minikube.sigs.k8s.io/docs/start/
@@ -27,3 +34,4 @@ The goal of this project is to bring the power of kubernetes into the light by m
   * ```kubectl --namespace default port-forward svc/kafka-ui 9000```
 * 7-Expose the producer-service api by running the bellow command and navigate to http://localhost:8080
   * ```kubectl --namespace default port-forward svc/producer-service 8080```
+
