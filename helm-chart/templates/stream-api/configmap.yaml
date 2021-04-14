@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.streamApi.configMap.name }}
+data:
+  app-configs: |-
+{{ .Files.Get "StreamApiConfigMap.toml" | indent 4 }}

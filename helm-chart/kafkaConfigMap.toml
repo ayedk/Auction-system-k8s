@@ -1,0 +1,4 @@
+KAFKA_ADVERTISED_HOST_NAME: kafka-0.kafka-headless
+KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+KAFKA_PORT: "9092"
+KAFKA_CREATE_TOPICS: "upstream_in_queue:25:1,upstream_out_queue:25:1,downstream_in_queue:25:1,downstream_out_queue:25:1"

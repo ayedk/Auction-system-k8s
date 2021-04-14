@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.kafka.configMap.name }}
+data:
+{{ .Files.Get "kafkaConfigMap.toml" | indent 2 }}
+

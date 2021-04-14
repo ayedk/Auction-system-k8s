@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.streamApi.name }}
+  labels:
+    app: {{ .Values.streamApi.labels.app }}
+spec:
+  {{- if not .Values.streamApi.autoscaling.enabled }}
+  replicas: {{ .Values.streamApi.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      app: {{ .Values.streamApi.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.streamApi.labels.app }}
+    spec:
+      containers:
+        - name: {{ .Values.streamApi.spec.name }}
+          image: "{{ .Values.streamApi.spec.image.repository }}:{{ .Values.streamApi.spec.image.tag }}"
+          imagePullPolicy: {{ .Values.streamApi.spec.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.streamApi.spec.ports.containerPort }}
+              protocol: TCP
+          resources:
+            {{- toYaml .Values.streamApi.spec.resources | nindent 12 }}
+          volumeMounts:
+          - name: config
+            mountPath: {{ .Values.streamApi.spec.volumeMounts.mountPath }}
+            readOnly: {{ .Values.streamApi.spec.volumeMounts.readOnly }}
+      volumes:
+      - name: config
+        configMap:
+          name: {{ .Values.streamApi.configMap.name }}
+          items:
+          - key: {{ .Values.streamApi.configMap.key }}
+            path: {{ .Values.streamApi.configMap.path }}

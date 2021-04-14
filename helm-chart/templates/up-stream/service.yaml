@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.upstream.name }}
+  labels:
+    app: {{ .Values.upstream.labels.app }}
+spec:
+  type: {{ .Values.upstream.service.type }}
+  ports:
+    - port: {{ .Values.upstream.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app:  {{ .Values.upstream.name }}

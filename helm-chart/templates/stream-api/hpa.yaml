@@ -1,0 +1,22 @@
+{{- if .Values.streamApi.autoscaling.enabled }}
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ .Values.streamApi.name }}
+  labels:
+    app: {{ .Values.streamApi.labels.app }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ .Values.streamApi.name }}
+  minReplicas: {{ .Values.streamApi.autoscaling.minReplicas }}
+  maxReplicas: {{ .Values.streamApi.autoscaling.maxReplicas }}
+  metrics:
+    {{- if .Values.streamApi.autoscaling.targetCPUUtilizationPercentage }}
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: {{ .Values.streamApi.autoscaling.targetCPUUtilizationPercentage }}
+    {{- end }}
+{{- end }}

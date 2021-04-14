@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.upstream.name }}
+  labels:
+    app: {{ .Values.upstream.labels.app }}
+spec:
+  replicas: {{ .Values.upstream.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.upstream.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.upstream.labels.app }}
+    spec:
+      containers:
+      - name: {{ .Values.upstream.spec.name }}
+        image: "{{ .Values.upstream.spec.image.repository }}:{{ .Values.upstream.spec.image.tag }}"
+        imagePullPolicy: {{ .Values.upstream.spec.image.pullPolicy }}
+        ports:
+        - name: http
+          containerPort: {{ .Values.upstream.spec.ports.containerPort }}
+          protocol: TCP

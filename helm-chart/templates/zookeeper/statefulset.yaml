@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ .Values.zookeeper.name }}
+  labels:
+    app: {{ .Values.zookeeper.labels.app }}
+spec:
+  serviceName: {{ .Values.zookeeper.name }}-headless
+  replicas: {{ .Values.zookeeper.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.zookeeper.labels.app }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.zookeeper.labels.app }}
+    spec:
+      containers:
+      - name: {{ .Values.zookeeper.spec.name }}
+        image: "{{ .Values.zookeeper.spec.image.repository }}:{{ .Values.zookeeper.spec.image.tag }}"
+        imagePullPolicy: {{ .Values.zookeeper.spec.image.pullPolicy }}
+        ports:
+        - name: zk-client
+          containerPort: {{ .Values.zookeeper.spec.ports.zkclient.containerPort }}
+          protocol: TCP
+        - name: zk-follower
+          containerPort: {{ .Values.zookeeper.spec.ports.zkfollower.containerPort }}
+          protocol: TCP
+        - name: zk-election
+          containerPort: {{ .Values.zookeeper.spec.ports.zkelection.containerPort }}
+          protocol: TCP
+        envFrom:
+        - configMapRef:
+            name: {{ .Values.zookeeper.configMap.name }}
+        volumeMounts:
+          {{- toYaml .Values.zookeeper.spec.volumeMounts | nindent 12 }}
+  volumeClaimTemplates:
+  - metadata:
+      name: {{ .Values.zookeeper.volumeClaimTemplates.data.name }}
+    spec:
+      accessModes: {{ .Values.zookeeper.volumeClaimTemplates.data.accessModes }}
+      storageClassName: {{ .Values.zookeeper.volumeClaimTemplates.data.storageClassName }}
+      resources:
+        requests:
+          storage: {{ .Values.zookeeper.volumeClaimTemplates.data.storage }}
+  - metadata:
+      name: {{ .Values.zookeeper.volumeClaimTemplates.log.name }}
+    spec:
+      accessModes: {{ .Values.zookeeper.volumeClaimTemplates.log.accessModes }}
+      storageClassName: {{ .Values.zookeeper.volumeClaimTemplates.log.storageClassName }}
+      resources:
+        requests:
+          storage: {{ .Values.zookeeper.volumeClaimTemplates.log.storage }}

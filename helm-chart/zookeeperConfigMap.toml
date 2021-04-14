@@ -1,0 +1,1 @@
+ZOO_SERVERS: "server.1=zookeeper-0.zookeeper-headless.default:2888:3888;2181"

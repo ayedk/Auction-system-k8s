@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.kafka.name }}-headless
+  namespace: default
+spec:
+  clusterIP: {{ .Values.kafka.headless.clusterIP }}
+  ports:
+    - name: client
+      protocol: TCP
+      port: {{ .Values.kafka.headless.port }}
+      targetPort: {{ .Values.kafka.headless.targetPort }}
+  selector:
+    app: {{ .Values.kafka.labels.app }}

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.zookeeper.name }}-headless
+  namespace: default
+spec:
+  clusterIP: {{ .Values.zookeeper.headless.clusterIP }}
+  ports:
+    - name: follower
+      protocol: TCP
+      port: {{ .Values.zookeeper.headless.follower.port }}
+      targetPort: {{ .Values.zookeeper.headless.follower.targetPort }}
+    - name: election
+      protocol: TCP
+      port: {{ .Values.zookeeper.headless.election.port }}
+      targetPort: {{ .Values.zookeeper.headless.election.targetPort }}
+  selector:
+    app: {{ .Values.zookeeper.labels.app }}
