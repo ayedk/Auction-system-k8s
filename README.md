@@ -7,7 +7,9 @@ The goal of this project is to bring the power of kubernetes into the light by m
   * Tech World with Nana : https://www.youtube.com/c/TechWorldwithNana
   * Kode Kloud : https://www.youtube.com/channel/UCSWj8mqQCcrcBlXPi4ThRDQ
 * Udemy Courses :
-  * 
+  * Kubernetes for the Absolute Beginners - Hands-on : https://www.udemy.com/course/learn-kubernetes
+  * Docker and Kubernetes: The Complete Guide : https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide
+
 # Steps You need to Follow to get the kubernetes cluster running :
 * 1-Make sure that your virtualisation is activated in the bios level
 * 2-Download and install Minikube https://minikube.sigs.k8s.io/docs/start/
