@@ -1,7 +1,7 @@
 # Real time Acution system in kubernetes
 
 
-# Project Discription :
+## Project Discription :
 The goal of this project is to bring the power of kubernetes into the light by making a simple proof of concept application **Real time Acution system** that we will deploy it into kubernetes cluster Minikube and see how kubernetes manage Scalability,Configuration,Logging,Back up and Monitring of the application so this repostrie contain a helm chart of yamls files to help you setup a kafka broker in kubernetes with a simple kafka ui to manage kafka Topics and a deployment yaml file of a spring boot resful api that produce custom json object to kafka broker as example: {"buyer_id":"456","price":"863","product_id":"22"}.
 # Project Discription :
 * 
