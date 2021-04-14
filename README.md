@@ -1,7 +1,14 @@
 # Real Time Acution System in kubernetes
 ## Project Discription :
-The goal of this project is application that has similar functionality of the stream gateway deployed in a Kubernetes cluster and we will see how Kubernetes manage configuration , scalability , elasticity ![image](https://user-images.githubusercontent.com/40581620/114793250-db44e700-9d81-11eb-906f-bb1d615fb8ee.png)
-**Real time Acution system** that we will deploy it into kubernetes cluster Minikube and see how kubernetes manage Scalability,Configuration,Logging,Back up and Monitring of the application so this repostrie contain a helm chart of yamls files to help you setup a kafka broker in kubernetes with a simple kafka ui to manage kafka Topics and a deployment yaml file of a spring boot resful api that produce custom json object to kafka broker as example: {"buyer_id":"456","price":"863","product_id":"22"}.
+The goal of this project is to build a proof of concept application **Real Time Acution system** that has similar functionality of the stream gateway that we will deploy it into kubernetes cluster Minikube and see how kubernetes solve Scalability,Configuration,Logging,Back up and Monitring of the application.
+
+### helm chart :
+
+### spring boot services :
+
+### script :
+
+### kafka-ui :
 
 # Kubernetes Learning Resources :
 * kubernetes official documentation : https://kubernetes.io/docs/home/
