@@ -1,0 +1,34 @@
+<form class="example-form" (ngSubmit)="onSignup(f)" #f="ngForm">
+  <mat-form-field class="example-full-width">
+    <mat-label>User Name</mat-label>
+    <input 
+    type="text"
+    name="username"
+    ngModel 
+    required 
+    matInput 
+    placeholder="Ex. Martin21">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input 
+      type="email" 
+      name="email"
+      ngModel 
+      required 
+      email
+      matInput 
+      placeholder="Ex. pat@example.com">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Password</mat-label>
+    <input 
+        type="password"
+        name="password"
+        ngModel 
+        required 
+        matInput 
+        placeholder="Ex. 123@mGXY">
+  </mat-form-field>
+  <button type="submit" mat-button color="primary">Submit</button>
+</form>

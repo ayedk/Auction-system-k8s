@@ -1,0 +1,15 @@
+
+<mat-card class="example-card">
+    <mat-card-header>
+      <h1>{{ auction.title }}</h1>
+    </mat-card-header>
+    <img mat-card-image src="{{ auction.imagePath }}" alt="Lights">
+    <mat-card-content>
+      <p>{{ auction.description }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button></button>
+      <button mat-button>{{ timeLeft }}</button>
+      <button mat-button>See Detail</button>
+    </mat-card-actions>
+</mat-card>
