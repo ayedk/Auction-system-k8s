@@ -3,10 +3,13 @@
 The goal of this project is to build a cloud archtecture for the Stream Gateway to be cloud ready so i have did a research about cloud services and i found that kubernetes is the most used service for containerized application provided by almost every cloud provider such as AWS has [Amazon Elastic Kubernetes Service EKS](https://aws.amazon.com/eks/), Azure has [Azure Kubernetes Service AKS](https://azure.microsoft.com/en-in/services/kubernetes-service/) and Google Cloud has [Google Kubernetes Engine GKE](https://cloud.google.com/kubernetes-engine) and due to the confidantial of the Stream Gateway i have build a proof of concept application **Real Time Acution system** that has similar functionality of the Stream Gateway and we will deploy it into a kubernetes cluster Minikube and see how kubernetes manage the application Scalability, Configuration, Logging, Back up and Monitring.
 
 ## PoC Discription :
-The PoC application is all about a Real Time Acution system that allow to seller to sell their stuff and the buyer to place bids on the auction and after the auction is close the owner of the biggest bid price win the auction.
+The PoC application is an Online Real Time Acution System that allow sellers to sell their stuff and buyers to place bids on the auctions and after the auction is close the owner of the biggest bid price win the auction.
 ## PoC Architecture :
 ![PoC Architecture](https://user-images.githubusercontent.com/40581620/114798457-4b0c9f00-9d8d-11eb-83c4-16a5a88f9330.png)
-
+In this architecture there are three main services :
+* **Up Stream Service** : how responsibale for taking placed bids from buyers and producing bids event to kafka and consuming notification events from kafka then send them to user via web socket
+* **Stream Api Service** : wich is the service that has a similar functionality to the Stream Gateway that take the bid from the up stream and publish them to the down stream service via kafka and at least the 
+* **Sown Stream Service** : is responsible for publishing notification to the user that have place  
 ## Repository Content :
 #### helm chart :
 
@@ -24,8 +27,8 @@ The PoC application is all about a Real Time Acution system that allow to seller
 * Udemy Courses :
   * Kubernetes for the Absolute Beginners - Hands-on : https://www.udemy.com/course/learn-kubernetes
   * Docker and Kubernetes: The Complete Guide : https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide
-
-# Steps You need to Follow to get the kubernetes cluster running :
+# Usage
+## Steps You need to Follow to get the kubernetes cluster running :
 * 1-Make sure that your virtualisation is activated in the bios level
 * 2-Download and install Minikube https://minikube.sigs.k8s.io/docs/start/
   * Add the minikube.exe and kubectl.exe path to the envireement variable
@@ -42,4 +45,4 @@ The PoC application is all about a Real Time Acution system that allow to seller
   * 3.4-Navigate to http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/ and login using the access token
 * 5-Finally you will get smoething like this
 ![image](https://user-images.githubusercontent.com/40581620/111620859-8bf1b200-87e7-11eb-875b-9102a2a31f38.png)
-
+# Helm install
