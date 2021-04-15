@@ -37,7 +37,7 @@ This folder contain a kafka ui kubernetes deployement and service that we will u
 * 2-Download and install Minikube https://minikube.sigs.k8s.io/docs/start/
   * Add the minikube.exe and kubectl.exe path to the envireement variable
   * Make sure that kubectl works correctly
-* 3-Deploy kubernetes dashboard to easily manage kubernetes objects
+* 3-Deploy kubernetes dashboard to easily manage kubernetes objects 
   * 3.1-Deploye the dashboard-adminuser.yaml file that will create an admin user role associate to the kubernates dashboard using the command bellow
     * ```kubectl apply -f dashboard-adminuser.yaml```
   * 3.2-Generate an access token using the command bellow
@@ -47,8 +47,6 @@ This folder contain a kafka ui kubernetes deployement and service that we will u
   * 3.3-Run the kubernetes dashbord by using the command bellow
     * ```kubectl proxy```
   * 3.4-Navigate to http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/ and login using the access token
-* 5-Finally you will get smoething like this
-![image](https://user-images.githubusercontent.com/40581620/111620859-8bf1b200-87e7-11eb-875b-9102a2a31f38.png)
 ## Steps You need to Follow to get Helm installed:
 * 1-Download your [desired version](https://github.com/helm/helm/releases).
 * 2-Unpack it.
