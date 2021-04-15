@@ -6,13 +6,13 @@ The goal of this project is to build a cloud archtecture for the Stream Gateway 
 
 ## Application Architecture :
 ## Repository Content :
-###### helm chart :
+#### helm chart :
 
-###### spring boot services :
+#### spring boot services :
 
-###### script :
+#### script :
 
-###### kafka-ui :
+#### kafka-ui :
 
 # Kubernetes Learning Resources :
 * kubernetes official documentation : https://kubernetes.io/docs/home/
