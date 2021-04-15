@@ -20,7 +20,7 @@ The PoC application is an Online Real Time Acution System that allow sellers to 
  
 * **kafka-ui** :
 
-# Kubernetes Learning Resources :
+## Kubernetes Learning Resources :
 * kubernetes official documentation : https://kubernetes.io/docs/home/
 * Youtube Chanel:
   * Tech World with Nana : https://www.youtube.com/c/TechWorldwithNana
@@ -28,7 +28,10 @@ The PoC application is an Online Real Time Acution System that allow sellers to 
 * Udemy Courses :
   * Kubernetes for the Absolute Beginners - Hands-on : https://www.udemy.com/course/learn-kubernetes
   * Docker and Kubernetes: The Complete Guide : https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide
-# Usage
+
+## Prerequiset :
+* Kubernetes Cluster
+* Helm
 ## Steps You need to Follow to get the kubernetes cluster running :
 * 1-Make sure that your virtualisation is activated in the bios level
 * 2-Download and install Minikube https://minikube.sigs.k8s.io/docs/start/
@@ -46,4 +49,4 @@ The PoC application is an Online Real Time Acution System that allow sellers to 
   * 3.4-Navigate to http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/ and login using the access token
 * 5-Finally you will get smoething like this
 ![image](https://user-images.githubusercontent.com/40581620/111620859-8bf1b200-87e7-11eb-875b-9102a2a31f38.png)
-# Helm install
+## Steps You need to Follow to install Helm :
