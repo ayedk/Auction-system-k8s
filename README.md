@@ -49,6 +49,8 @@ This folder contain a kafka ui kubernetes deployement and service that we will u
   * 3.4-Navigate to http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/ and login using the access token
 * 5-Finally you will get smoething like this
 ![image](https://user-images.githubusercontent.com/40581620/111620859-8bf1b200-87e7-11eb-875b-9102a2a31f38.png)
-## Steps You need to Follow to install Helm :
-
+## Steps You need to Follow to get Helm installed:
+* 1-Download your [desired version](https://github.com/helm/helm/releases).
+* 2-Unpack it.
+* 3-Find the helm binary in the unpacked directory, and add it to the envirement varibale path so you can execute helm command from any terminal.
 ## Usage
