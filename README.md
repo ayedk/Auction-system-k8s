@@ -7,17 +7,17 @@ The PoC application is an Online Real Time Acution System that allow sellers to 
 ## PoC Architecture :
 ![PoC Architecture](https://user-images.githubusercontent.com/40581620/114798457-4b0c9f00-9d8d-11eb-83c4-16a5a88f9330.png)
 In this architecture there are three main services :
-* **Up Stream Service** : how responsibale for taking placed bids from buyers and producing bids event to kafka and consuming notification events from kafka then send them to user via web socket
-* **Stream Api Service** : wich is the service that has a similar functionality to the Stream Gateway that take the bid from the up stream and publish them to the down stream service via kafka and at least the 
-* **Sown Stream Service** : is responsible for publishing notification to the user that have place  
+* **Up Stream Service** : This is the service how responsibale for taking placed bids from buyers and producing bids event to kafka and consuming notification events from kafka then send them to user via web socket
+* **Stream Api Service** : Wich is the service that has a similar functionality to the Stream Gateway that take the bid from the up stream and publish them to the down stream service via kafka and take notification events from Down Stream and publish them to Up Stream service.
+* **Sown Stream Service** : This service is responsible for taking bid event from the Api Service and do a search on the database then publish back notification events to the buyers that already placed a bid to the same auction.
 ## Repository Content :
-#### helm chart :
+* **helm chart** :
 
-#### spring boot services :
+* **spring boot services** :
 
-#### script :
-
-#### kafka-ui :
+* **script** :
+ 
+* **kafka-ui** :
 
 # Kubernetes Learning Resources :
 * kubernetes official documentation : https://kubernetes.io/docs/home/
