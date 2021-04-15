@@ -1,6 +1,6 @@
 # Real Time Acution System in kubernetes
 ## Project Discription :
-The goal of this project is to build a proof of concept application **Real Time Acution system** that has similar functionality of the stream gateway that we will deploy it into kubernetes cluster Minikube and see how kubernetes solve Scalability,Configuration,Logging,Back up and Monitring of the application.
+The goal of this project is to build a cloud archtecture for the Stream Gateway to be cloud ready so i have did a research about cloud services and i found that kubernetes is the most used service for containerized application provided by almost every cloud provider AWS([EKS](https://aws.amazon.com/eks/)),Azure([AKS](https://azure.microsoft.com/en-in/services/kubernetes-service/)),GCP([GKE](https://cloud.google.com/kubernetes-engine)) ... for con a proof of concept application **Real Time Acution system** that has similar functionality of the stream gateway and we will deploy it into a kubernetes cluster Minikube and see how kubernetes manage Scalability,Configuration,Logging,Back up and Monitring of the application.
 
 ### helm chart :
 
