@@ -13,13 +13,13 @@ The PoC application is an Online Real Time Acution System that allow sellers to 
 * **Sown Stream Service** : This service is responsible for taking bid event from the Api Service and do a search on the database then publish back notification events to the buyers that already placed a bid to the same auction.
 ## Repository Content :
 * **helm chart** :
-
+This folder contain the helm chart that we will use to deploy the PoC application to kubernetes cluster.
 * **spring boot services** :
-
+The three folder up-stream, stream-api and the down-stream are the services for the PoC developed using spring boot.
 * **script** :
- 
+The script folder is contain a javascript script that generate random bid and send them to up stream service using http module.
 * **kafka-ui** :
-
+This folder contain a kafka ui kubernetes deployement and service that we will use to visualise kafka broker
 ## Kubernetes Learning Resources :
 * kubernetes official documentation : https://kubernetes.io/docs/home/
 * Youtube Chanel:
@@ -50,3 +50,5 @@ The PoC application is an Online Real Time Acution System that allow sellers to 
 * 5-Finally you will get smoething like this
 ![image](https://user-images.githubusercontent.com/40581620/111620859-8bf1b200-87e7-11eb-875b-9102a2a31f38.png)
 ## Steps You need to Follow to install Helm :
+
+## Usage
