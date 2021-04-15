@@ -52,3 +52,5 @@ This folder contain a kafka ui kubernetes deployement and service that we will u
 * 2-Unpack it.
 * 3-Find the helm binary in the unpacked directory, and add it to the envirement varibale path so you can execute helm command from any terminal.
 ## Usage
+Clone this repositry and use the following command :
+* **```helm install auction-system ./helm-chart/```**
