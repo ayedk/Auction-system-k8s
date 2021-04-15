@@ -1,14 +1,18 @@
 # Real Time Acution System in kubernetes
 ## Project Discription :
-The goal of this project is to build a cloud archtecture for the Stream Gateway to be cloud ready so i have did a research about cloud services and i found that kubernetes is the most used service for containerized application provided by almost every cloud provider such as AWS has [Amazon Elastic Kubernetes Service EKS](https://aws.amazon.com/eks/), Azure has [Azure Kubernetes Service AKS](https://azure.microsoft.com/en-in/services/kubernetes-service/)) and Google Cloud has [Google Kubernetes Engine GKE](https://cloud.google.com/kubernetes-engine)  ... for con a proof of concept application **Real Time Acution system** that has similar functionality of the stream gateway and we will deploy it into a kubernetes cluster Minikube and see how kubernetes manage Scalability,Configuration,Logging,Back up and Monitring of the application.
+The goal of this project is to build a cloud archtecture for the Stream Gateway to be cloud ready so i have did a research about cloud services and i found that kubernetes is the most used service for containerized application provided by almost every cloud provider such as AWS has [Amazon Elastic Kubernetes Service EKS](https://aws.amazon.com/eks/), Azure has [Azure Kubernetes Service AKS](https://azure.microsoft.com/en-in/services/kubernetes-service/) and Google Cloud has [Google Kubernetes Engine GKE](https://cloud.google.com/kubernetes-engine) and due to the confidantial of the Stream Gateway i have build a proof of concept application **Real Time Acution system** that has similar functionality of the Stream Gateway and we will deploy it into a kubernetes cluster Minikube and see how kubernetes manage Scalability,Configuration,Logging,Back up and Monitring of the application.
 
-### helm chart :
+## Application Discription :
 
-### spring boot services :
+## Application Architecture :
+## Repository Content :
+###### helm chart :
 
-### script :
+###### spring boot services :
 
-### kafka-ui :
+###### script :
+
+###### kafka-ui :
 
 # Kubernetes Learning Resources :
 * kubernetes official documentation : https://kubernetes.io/docs/home/
@@ -34,14 +38,6 @@ The goal of this project is to build a cloud archtecture for the Stream Gateway 
   * 3.3-Run the kubernetes dashbord by using the command bellow
     * ```kubectl proxy```
   * 3.4-Navigate to http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/ and login using the access token
-* 4-Deploy all the workload inside the project folder using the command bellow
-  * ```kubectl apply -k Auction-system-k8s/zookeeper```
-  * ```kubectl apply -k Auction-system-k8s/broker```
-  * ```kubectl apply -k Auction-system-k8s/kafka-ui```
-  * ```kubectl apply -k Auction-system-k8s/producer-service```
 * 5-Finally you will get smoething like this
 ![image](https://user-images.githubusercontent.com/40581620/111620859-8bf1b200-87e7-11eb-875b-9102a2a31f38.png)
-* 6-Expose Kafka ui by running the bellow command and navigate to http://localhost:9000
-  * ```kubectl --namespace default port-forward svc/kafka-ui 9000```
-* 7-Expose the producer-service api by running the bellow command and navigate to http://localhost:8080
-  * ```kubectl --namespace default port-forward svc/producer-service 8080```
+
