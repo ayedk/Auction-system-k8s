@@ -56,11 +56,14 @@ This folder contain a kafka ui kubernetes deployement and service that we will u
 * 3-Find the helm binary in the unpacked directory, and add it to the envirement varibale path so you can execute helm command from any terminal.
 ## Usage
 Clone this repositry and use the following command :
-* **```helm install auction-system ./helm-chart/```**
-Forward the upstream service trafic from the cluster to your host machine using the commmand bellow :
+* Create a kubernetes cluster :
+* **```minikube start --memory=5g```**
+* Install the helm chart by switching to the helm-chart directory an running the following command :
+* **```helm install auction-system ./```**
+* Forward the upstream service trafic from the cluster to your host machine using the commmand bellow :
 * **```kubectl --namespace default port-forward svc/upstream 8080```**
-Deploy a kafka ui so you can visualise kafka topics :
+* Deploy a kafka ui so you can visualise kafka topics :
 * **Copy the content of the deployment.yaml and service.yaml and deploy them using the dashboard**
-Forward the kafka-ui service trafic from the cluster to your host machine using the commmand bellow :
+* Forward the kafka-ui service trafic from the cluster to your host machine using the commmand bellow :
 * **```kubectl --namespace default port-forward svc/kafka-ui 9000```**
 * **Navigate to**: http://localhost:9000
