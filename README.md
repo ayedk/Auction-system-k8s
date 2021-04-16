@@ -37,16 +37,19 @@ This folder contain a kafka ui kubernetes deployement and service that we will u
 * 2-Download and install Minikube https://minikube.sigs.k8s.io/docs/start/
   * Add the minikube.exe and kubectl.exe path to the envireement variable
   * Make sure that kubectl works correctly
-* 3-Deploy kubernetes dashboard to easily manage kubernetes objects 
-  * 3.1-Deploye the dashboard-adminuser.yaml file that will create an admin user role associate to the kubernates dashboard using the command bellow
+* 3-Deploy kubernetes dashboard to easily manage kubernetes objects
+  * 3.1-If the command bellow doesn't work for you try to follow the further steps
+  * ```minikube dashboard```
+  * 3.2-Deploying kubernetes dashboard using yaml file:
+   * 3.1-Deploye the dashboard-adminuser.yaml file that will create an admin user role associate to the kubernates dashboard using the command bellow
     * ```kubectl apply -f dashboard-adminuser.yaml```
-  * 3.2-Generate an access token using the command bellow
-  * ```kubectl -n kubernetes-dashboard get secret $(kubectl -n kubernetes-dashboard get sa/admin-user -o jsonpath="{.secrets[0].name}") -o go-template="{{.data.token | base64decode}}"```
-  * 3.2-Deploy the recommended yaml file that will deploy the kubernetes dashboard
+   * 3.2-Generate an access token using the command bellow
+   * ```kubectl -n kubernetes-dashboard get secret $(kubectl -n kubernetes-dashboard get sa/admin-user -o jsonpath="{.secrets[0].name}") -o go-template="{{.data.token |    base64decode}}"```
+   * 3.2-Deploy the recommended yaml file that will deploy the kubernetes dashboard
     * ```kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml```
-  * 3.3-Run the kubernetes dashbord by using the command bellow
+   * 3.3-Run the kubernetes dashbord by using the command bellow
     * ```kubectl proxy```
-  * 3.4-Navigate to http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/ and login using the access token
+   * 3.4-Navigate to http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/ and login using the access token
 ## Steps You need to Follow to get Helm installed:
 * 1-Download your [desired version](https://github.com/helm/helm/releases).
 * 2-Unpack it.
@@ -54,3 +57,10 @@ This folder contain a kafka ui kubernetes deployement and service that we will u
 ## Usage
 Clone this repositry and use the following command :
 * **```helm install auction-system ./helm-chart/```**
+Forward the upstream service trafic from the cluster to your host machine using the commmand bellow :
+* **```kubectl --namespace default port-forward svc/upstream 8080```**
+Deploy a kafka ui so you can visualise kafka topics :
+* **Copy the content of the deployment.yaml and service.yaml and deploy them using the dashboard**
+Forward the kafka-ui service trafic from the cluster to your host machine using the commmand bellow :
+* **```kubectl --namespace default port-forward svc/kafka-ui 9000```**
+* **Navigate to**: http://localhost:9000
