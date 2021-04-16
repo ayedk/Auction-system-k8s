@@ -39,17 +39,17 @@ This folder contain a kafka ui kubernetes deployement and service that we will u
   * Make sure that kubectl works correctly
 * 3-Deploy kubernetes dashboard to easily manage kubernetes objects
   * 3.1-If the command bellow doesn't work for you try to follow the further steps
-  * ```minikube dashboard```
+   * ```minikube dashboard```
   * 3.2-Deploying kubernetes dashboard using yaml file:
-  * 3.1-Deploye the dashboard-adminuser.yaml file that will create an admin user role associate to the kubernates dashboard using the command bellow
-  * ```kubectl apply -f dashboard-adminuser.yaml```
-  * 3.2-Generate an access token using the command bellow
-  * ```kubectl -n kubernetes-dashboard get secret $(kubectl -n kubernetes-dashboard get sa/admin-user -o jsonpath="{.secrets[0].name}") -o go-template="{{.data.token |    base64decode}}"```
-  * 3.2-Deploy the recommended yaml file that will deploy the kubernetes dashboard
-  * ```kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml```
-  * 3.3-Run the kubernetes dashbord by using the command bellow
-  * ```kubectl proxy```
-  * 3.4-Navigate to http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/ and login using the access token
+   * 3.1-Deploye the dashboard-adminuser.yaml file that will create an admin user role associate to the kubernates dashboard using the command bellow
+   * ```kubectl apply -f dashboard-adminuser.yaml```
+   * 3.2-Generate an access token using the command bellow
+   * ```kubectl -n kubernetes-dashboard get secret $(kubectl -n kubernetes-dashboard get sa/admin-user -o jsonpath="{.secrets[0].name}") -o go-template="{{.data.token |    base64decode}}"```
+   * 3.2-Deploy the recommended yaml file that will deploy the kubernetes dashboard
+   * ```kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml```
+   * 3.3-Run the kubernetes dashbord by using the command bellow
+   * ```kubectl proxy```
+   * 3.4-Navigate to http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/ and login using the access token
 ## Steps You need to Follow to get Helm installed:
 * 1-Download your [desired version](https://github.com/helm/helm/releases).
 * 2-Unpack it.
