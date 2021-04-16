@@ -63,7 +63,7 @@ Clone this repositry and use the following command :
 * Forward the upstream service trafic from the cluster to your host machine using the commmand bellow :
 * **```kubectl --namespace default port-forward svc/upstream 8080```**
 * Deploy a kafka ui so you can visualise kafka topics :
-* **Copy the content of the deployment.yaml and service.yaml and deploy them using the dashboard**
+* Copy the content of the deployment.yaml and service.yaml and deploy them using the dashboard :
 * Forward the kafka-ui service trafic from the cluster to your host machine using the commmand bellow :
 * **```kubectl --namespace default port-forward svc/kafka-ui 9000```**
-* **Navigate to**: http://localhost:9000
+* Navigate to: http://localhost:9000
