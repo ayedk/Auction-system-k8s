@@ -17,7 +17,7 @@ public class BidEventController {
     @Autowired
     @Qualifier("auction-system")
     private KafkaTemplate<String, BidEvent> bidkafkaTemplate;
-    @Value("${downstream.connection.out.queue}")
+    @Value("${downstream.connection.in.queue}")
     String downStreamOutQueue;
     @KafkaListener(
             topics = "${upstream.connection.out.queue}",

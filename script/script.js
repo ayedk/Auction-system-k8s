@@ -18,9 +18,9 @@ setInterval(
       bidDate = new Date().getTime();
       
       var bid = {
-          "auctionId": auctionId,
-          "bidPrice": bidPrice,
           "buyerId": buyerId,
+          "bidPrice": bidPrice,
+          "auctionId": auctionId,
           "bidDate": bidDate
       }
       data = JSON.stringify(bid)
@@ -30,7 +30,7 @@ setInterval(
 
 
           res.on('data', d => {
-            console.log(d.body)
+            process.stdout.write(d)
           })
         })
         

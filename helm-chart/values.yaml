@@ -14,7 +14,7 @@ streamApi:
   spec:
     name: stream-api
     image:
-      repository:  fis/stream-api
+      repository:  ayedk/stream-api
       pullPolicy: IfNotPresent
       tag:  "latest"
     
@@ -62,7 +62,7 @@ upstream:
   spec:
     name: upstream
     image:
-      repository:  fis/upstream
+      repository:  ayedk/upstream
       pullPolicy: IfNotPresent
       tag:  "latest"
     
@@ -86,7 +86,7 @@ downstream:
   spec:
     name: down-stream
     image:
-      repository:  fis/down-stream
+      repository:  ayedk/down-stream
       pullPolicy: IfNotPresent
       tag:  "latest"
 
@@ -117,7 +117,7 @@ kafka:
   
   volumeClaimTemplates:
     name: data
-    accessModes:  [ "ReadWriteOnce" ]
+    accessModes: "ReadWriteOnce"
     storageClassName: standard
     storage:  5Gi
   
@@ -162,7 +162,7 @@ mysql:
 
   volumeClaimTemplates:
     name: data
-    accessModes:  [ "ReadWriteOnce" ]
+    accessModes: "ReadWriteOnce"
     storageClassName: standard
     storage:  5Gi
   
@@ -207,12 +207,12 @@ zookeeper:
   volumeClaimTemplates:
     data:
       name: data
-      accessModes:  [ "ReadWriteOnce" ]
+      accessModes: "ReadWriteOnce"
       storageClassName: standard
       storage:  1Gi
     log:
       name: log
-      accessModes:  [ "ReadWriteOnce" ]
+      accessModes: "ReadWriteOnce"
       storageClassName: standard
       storage:  1Gi
 
@@ -235,3 +235,36 @@ zookeeper:
     type: ClusterIP
     port: 2181
     targetPort: 2181
+
+## ------------------------------------------------------
+## Back Up
+## ------------------------------------------------------
+backup:
+  namespace: kube-system
+  name: backup
+  # you can switch enabled to false if you want to disable back up
+  enabled: true
+  schedule: "*/1 * * * *"
+
+  spec:
+    image:
+      repository:  k8s.gcr.io/etcd
+      pullPolicy: IfNotPresent
+      tag:  "3.4.13-0"
+    
+    volumeMounts:
+      - name: etcd-certs
+        mountPath:  /etc/kubernetes/pki/etcd
+        readOnly: true
+      - name: backup
+        mountPath: /backup
+    
+    volumes:
+    - name: etcd-certs
+      hostPath:
+        path: /var/lib/minikube/certs/etcd
+        type: DirectoryOrCreate
+    - name: backup
+      hostPath:
+        path: /c/Users/e5640132/Desktop/backup
+        type: DirectoryOrCreate

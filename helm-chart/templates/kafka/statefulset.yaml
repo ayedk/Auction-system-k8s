@@ -33,7 +33,7 @@ spec:
   - metadata:
       name: {{ .Values.kafka.volumeClaimTemplates.name }}
     spec:
-      accessModes: {{ .Values.kafka.volumeClaimTemplates.accessModes }}
+      accessModes: ["{{ .Values.kafka.volumeClaimTemplates.accessModes }}"]
       storageClassName: {{ .Values.kafka.volumeClaimTemplates.storageClassName }}
       resources:
         requests:

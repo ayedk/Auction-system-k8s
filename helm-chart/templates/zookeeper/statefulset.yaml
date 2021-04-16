@@ -38,7 +38,7 @@ spec:
   - metadata:
       name: {{ .Values.zookeeper.volumeClaimTemplates.data.name }}
     spec:
-      accessModes: {{ .Values.zookeeper.volumeClaimTemplates.data.accessModes }}
+      accessModes: ["{{ .Values.zookeeper.volumeClaimTemplates.data.accessModes }}"]
       storageClassName: {{ .Values.zookeeper.volumeClaimTemplates.data.storageClassName }}
       resources:
         requests:
@@ -46,7 +46,7 @@ spec:
   - metadata:
       name: {{ .Values.zookeeper.volumeClaimTemplates.log.name }}
     spec:
-      accessModes: {{ .Values.zookeeper.volumeClaimTemplates.log.accessModes }}
+      accessModes: ["{{ .Values.zookeeper.volumeClaimTemplates.log.accessModes }}"]
       storageClassName: {{ .Values.zookeeper.volumeClaimTemplates.log.storageClassName }}
       resources:
         requests:

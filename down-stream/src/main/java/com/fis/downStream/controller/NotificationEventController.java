@@ -24,11 +24,11 @@ public class NotificationEventController {
     private KafkaTemplate<String, NotificationEvent> messageKafkaTemplate;
     @Autowired
     private BidService bidService;
-    @Value("${downstream.connection.in.queue}")
+    @Value("${downstream.connection.out.queue}")
     public String downStreamInQueue;
     String downStreamOutQueue;
     @KafkaListener(
-            topics = "${downstream.connection.out.queue}",
+            topics = "${downstream.connection.in.queue}",
             groupId = "${stream-api.consumer.group-id}"
     )
     public void listen(@Payload String str) throws JsonProcessingException {

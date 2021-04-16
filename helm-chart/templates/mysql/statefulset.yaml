@@ -33,7 +33,7 @@ spec:
   - metadata:
       name: {{ .Values.mysql.volumeClaimTemplates.name }}
     spec:
-      accessModes: {{ .Values.mysql.volumeClaimTemplates.accessModes }}
+      accessModes: ["{{ .Values.mysql.volumeClaimTemplates.accessModes }}"]
       storageClassName: {{ .Values.mysql.volumeClaimTemplates.storageClassName }}
       resources:
         requests:

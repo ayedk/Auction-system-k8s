@@ -1,5 +1,5 @@
 
-server.port: 5656
+
 # queues configs
 downstream.connection.out.queue: downstream_out_queue
 downstream.connection.in.queue: downstream_in_queue
@@ -16,4 +16,4 @@ producer.bootstrap-servers: kafka:9092
 consumer.bootstrap-servers: kafka:9092
 downstream.consumer.group-id: notif-group
 upstream.consumer.group-id: bid-group
-consumer.auto-offset-reset: latest
+consumer.auto-offset-reset: earliest

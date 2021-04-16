@@ -23,8 +23,8 @@ public class BidController {
     @RequestMapping(value ="bid/publisher",method = RequestMethod.POST)
     public String post(@RequestBody Bid bid) {
         bidRepository.save(bid);
-        BidEvent bidEvent = new BidEvent(bid.getBuyerId(),bid.getBidPrice(),bid.getAuctionId(),bid.getBidDate());
-        kafkaTemplate.send(outQueue,"key-"+ bid.getAuctionId().toString(),bidEvent);
+        BidEvent bidEvent = new BidEvent(bid.getAuctionId(),bid.getBidPrice(),bid.getBuyerId(),bid.getBidDate());
+        kafkaTemplate.send(outQueue,"key-"+ bidEvent.getAuctionId().toString(),bidEvent);
         return "Bid Placed successfully";
     }
 }

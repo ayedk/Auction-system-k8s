@@ -1,0 +1,33 @@
+{{- if .Values.backup.enabled }}
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ .Values.backup.name }}
+  namespace: {{ .Values.backup.namespace }}
+spec:
+  schedule: "{{ .Values.backup.schedule }}"
+  successfulJobsHistoryLimit: 0
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: {{ .Values.backup.name }}
+            image: "{{ .Values.backup.spec.image.repository }}:{{ .Values.backup.spec.image.tag }}"
+            env:
+            - name: ETCDCTL_API
+              value: "3"
+            command: ["/bin/sh"]
+            args: ["-c", "etcdctl 
+            --endpoints=https://127.0.0.1:2379 
+            --cacert=/etc/kubernetes/pki/etcd/ca.crt 
+            --cert=/etc/kubernetes/pki/etcd/healthcheck-client.crt 
+            --key=/etc/kubernetes/pki/etcd/healthcheck-client.key 
+            snapshot save /backup/etcd-snapshot.db"]
+            volumeMounts:
+            {{- toYaml .Values.backup.spec.volumeMounts | nindent 12 }}
+          restartPolicy: OnFailure
+          hostNetwork: true
+          volumes:
+          {{- toYaml .Values.backup.spec.volumes | nindent 12 }}
+{{- end }}

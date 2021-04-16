@@ -21,7 +21,7 @@ public class NotificationEventController {
     public String auctionSystemInQueue;
 
     @KafkaListener(
-            topics = "${downstream.connection.in.queue}",
+            topics = "${downstream.connection.out.queue}",
             groupId = "${downstream.consumer.group-id}",
             containerFactory = "notificationKafkaListenerContainerFactory"
     )

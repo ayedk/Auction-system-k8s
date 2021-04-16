@@ -4,4 +4,4 @@ metadata:
   name: {{ .Values.streamApi.configMap.name }}
 data:
   app-configs: |-
-{{ .Files.Get "StreamApiConfigMap.toml" | indent 4 }}
+{{ .Files.Get "streamApiConfigMap.toml" | indent 4 }}

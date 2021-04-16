@@ -25,6 +25,8 @@ public class KafkaConsumerConfig {
 
     @Value("${consumer.auto-offset-reset}")
     private String offsetReset;
+
+    // 1. Consume notification objects from Kafka
     @Bean
     public ConsumerFactory<String, String> notificationConsumerFactory() {
         Map<String, Object> props = new HashMap<>();
@@ -43,7 +45,7 @@ public class KafkaConsumerConfig {
         return factory;
     }
 
-    // 2. Consume user objects from Kafka
+    // 2. Consume bid objects from Kafka
 
     @Bean
     public ConsumerFactory<String, String> bidConsumerFactory() {
