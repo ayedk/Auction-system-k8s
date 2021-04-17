@@ -28,6 +28,9 @@ This folder contains a kafka ui kubernetes deployment and service that we will u
 * Udemy Courses :
   * Kubernetes for the Absolute Beginners - Hands-on : https://www.udemy.com/course/learn-kubernetes
   * Docker and Kubernetes: The Complete Guide : https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide
+* Kubernetes online labs :
+  * Play with kubernetes : https://labs.play-with-k8s.com/
+  * Kubernetes Playground : https://www.katacoda.com/courses/kubernetes/playground
 
 ## Prerequiset :
 * Kubernetes Cluster
