@@ -6,6 +6,7 @@ The goal of this project is to build a cloud architecture for the Stream Gateway
 The PoC application is an Online Real Time Acution System that allows sellers to sell their stuff and buyers to place bids on the auctions and after the auction is close the owner of the biggest bid price wins the auction.
 ## PoC Architecture :
 ![PoC Architecture](https://user-images.githubusercontent.com/40581620/114798457-4b0c9f00-9d8d-11eb-83c4-16a5a88f9330.png)
+![Webp net-resizeimage](https://user-images.githubusercontent.com/40581620/115128437-a7fa9600-9fd5-11eb-87c8-a8cb2a08341a.png)
 
 **In this architecture there are three main services :**
 * **Up Stream Service** : This is the service how responsible for taking placed bids from buyers and producing bids event to Kafka and consuming notification events from Kafka then send them to user via web socket
