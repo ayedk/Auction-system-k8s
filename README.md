@@ -1,4 +1,4 @@
-# Real Time Acution System in kubernetes
+# Real Time Auction System in kubernetes
 ## Project Discription :
 The goal of this project is to build a cloud architecture for the Stream Gateway to be cloud ready so i have done a research about cloud services and I found that Kubernetes is the most used service for containerized application provided by almost every cloud provider such as AWS has [Amazon Elastic Kubernetes Service EKS](https://aws.amazon.com/eks/), Azure has [Azure Kubernetes Service AKS](https://azure.microsoft.com/en-in/services/kubernetes-service/) and Google Cloud has [Google Kubernetes Engine GKE](https://cloud.google.com/kubernetes-engine) and due to the confidential of the Stream Gateway i have build a proof of concept application **Real Time Auction system** that has similar functionality of the Stream Gateway and we will deploy it into a kubernetes cluster Minikube and see how kubernetes manage the application Scalability, Configuration, Logging, Backup and Monitring.
 
