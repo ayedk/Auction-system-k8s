@@ -17,9 +17,6 @@ streamApi:
       repository:  ayedk/stream-api
       pullPolicy: IfNotPresent
       tag:  "latest"
-    
-    ports:
-      containerPort:  5656
 
     resources:
       limits:
@@ -36,11 +33,6 @@ streamApi:
     name: stream-api-configs
     key:  app-configs
     path: application.properties
-
-  service:
-    type: ClusterIP
-    port: 5656
-    targetPort: 5656
 
   autoscaling:
     enabled: true

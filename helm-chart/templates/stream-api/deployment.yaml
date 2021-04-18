@@ -20,18 +20,14 @@ spec:
         - name: {{ .Values.streamApi.spec.name }}
           image: "{{ .Values.streamApi.spec.image.repository }}:{{ .Values.streamApi.spec.image.tag }}"
           imagePullPolicy: {{ .Values.streamApi.spec.image.pullPolicy }}
-          ports:
-            - name: http
-              containerPort: {{ .Values.streamApi.spec.ports.containerPort }}
-              protocol: TCP
           resources:
             {{- toYaml .Values.streamApi.spec.resources | nindent 12 }}
           volumeMounts:
-          - name: config
+          - name: {{ .Values.streamApi.spec.volumeMounts.name }}
             mountPath: {{ .Values.streamApi.spec.volumeMounts.mountPath }}
             readOnly: {{ .Values.streamApi.spec.volumeMounts.readOnly }}
       volumes:
-      - name: config
+      - name: {{ .Values.streamApi.spec.volumeMounts.name }}
         configMap:
           name: {{ .Values.streamApi.configMap.name }}
           items:
