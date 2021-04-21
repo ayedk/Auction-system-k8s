@@ -157,7 +157,6 @@ mysql:
     accessModes: "ReadWriteOnce"
     storageClassName: standard
     storage:  5Gi
-  
 
   secret:
     name: mysql-secret
@@ -234,7 +233,7 @@ zookeeper:
 backup:
   namespace: kube-system
   name: backup
-  # you can switch enabled to false if you want to disable back up
+  # you can switch enabled to false if you want to disable backup
   enabled: true
   schedule: "*/1 * * * *"
 
