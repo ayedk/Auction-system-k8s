@@ -73,3 +73,8 @@ Copy the content of the deployment.yaml and service.yaml and deploy them using k
 Forward the kafka-ui service traffic from the cluster to your host machine using the commmand below\
 **```kubectl --namespace default port-forward svc/kafka-ui 9000```**
 * Navigate to: http://localhost:9000
+* setup prometheus using helm:\
+**helm repo add prometheus-community https://prometheus-community.github.io/helm-charts**
+**helm repo add kube-state-metrics https://kubernetes.github.io/kube-state-metrics**
+**helm repo update**
+**helm install --namespace monitoring  prometheus --set server.global.scrape_interval=10s,server.global.scrape_timeout=5s prometheus-community/prometheus**
