@@ -68,8 +68,8 @@ Clone this repositry and follow the further steps :
 * Switch to the script folder and run the following command this will generate a random number of bids to the upstream service :\
 **```npm install```**
 **```node script.js```**
-* Deploy a kafka ui so you can visualise kafka topics :
-* Copy the content of the deployment.yaml and service.yaml and deploy them using kubernetes dashboard :
-* Forward the kafka-ui service traffic from the cluster to your host machine using the commmand below :\
+* Deploy a kafka ui so you can visualise kafka topics :\
+Copy the content of the deployment.yaml and service.yaml and deploy them using kubernetes dashboard\
+Forward the kafka-ui service traffic from the cluster to your host machine using the commmand below\
 **```kubectl --namespace default port-forward svc/kafka-ui 9000```**
 * Navigate to: http://localhost:9000
