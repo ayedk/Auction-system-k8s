@@ -1,5 +1,6 @@
 package com.fis.streamService.model;
 
+
 import java.util.Date;
 
 public class NotificationEvent {
@@ -12,6 +13,7 @@ public class NotificationEvent {
         this.content = content;
         this.timestamp = timestamp;
     }
+
 
     public NotificationEvent() {
     }
@@ -39,4 +41,5 @@ public class NotificationEvent {
     public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
     }
+
 }

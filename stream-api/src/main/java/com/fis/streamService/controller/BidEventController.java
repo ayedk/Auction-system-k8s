@@ -18,7 +18,7 @@ public class BidEventController {
     @Qualifier("auction-system")
     private KafkaTemplate<String, BidEvent> bidkafkaTemplate;
     @Value("${downstream.connection.in.queue}")
-    String downStreamOutQueue;
+    String downStreamInQueue;
     @KafkaListener(
             topics = "${upstream.connection.out.queue}",
             groupId = "${upstream.consumer.group-id}",
@@ -26,6 +26,6 @@ public class BidEventController {
     )
     public void listen(@Payload String str) throws JsonProcessingException {
         BidEvent bidEvent = new ObjectMapper().readValue(str, BidEvent.class);
-        bidkafkaTemplate.send(downStreamOutQueue,bidEvent.getAuctionId().toString(), bidEvent);
+        bidkafkaTemplate.send(downStreamInQueue,bidEvent.getAuctionId().toString(), bidEvent);
     }
 }

@@ -18,7 +18,7 @@ public class NotificationEventController {
     @Qualifier("stream-service")
     private KafkaTemplate<String, NotificationEvent> messageKafkaTemplate;
     @Value("${upstream.connection.in.queue}")
-    public String auctionSystemInQueue;
+    public String upstreamInQueue;
 
     @KafkaListener(
             topics = "${downstream.connection.out.queue}",
@@ -28,7 +28,7 @@ public class NotificationEventController {
     public void listen(@Payload String str) throws JsonProcessingException {
 
         NotificationEvent notificationEvent = new ObjectMapper().readValue(str, NotificationEvent.class);
-        messageKafkaTemplate.send(auctionSystemInQueue,"key-"+notificationEvent.getReceiverId().toString(), notificationEvent);
+        messageKafkaTemplate.send(upstreamInQueue,"key-"+notificationEvent.getReceiverId().toString(), notificationEvent);
     }
 }
 

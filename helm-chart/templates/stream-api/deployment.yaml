@@ -13,6 +13,8 @@ spec:
       app: {{ .Values.streamApi.name }}
   template:
     metadata:
+      annotations:
+        {{- toYaml .Values.streamApi.annotations | nindent 12 }}
       labels:
         app: {{ .Values.streamApi.labels.app }}
     spec:
@@ -20,6 +22,10 @@ spec:
         - name: {{ .Values.streamApi.spec.name }}
           image: "{{ .Values.streamApi.spec.image.repository }}:{{ .Values.streamApi.spec.image.tag }}"
           imagePullPolicy: {{ .Values.streamApi.spec.image.pullPolicy }}
+          ports:
+          - name: jmx
+            containerPort: {{ .Values.streamApi.spec.ports.jmx.containerPort }}
+            protocol: TCP
           resources:
             {{- toYaml .Values.streamApi.spec.resources | nindent 12 }}
           volumeMounts:

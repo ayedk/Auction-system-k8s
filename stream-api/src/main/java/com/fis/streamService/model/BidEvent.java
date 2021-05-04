@@ -1,9 +1,10 @@
 package com.fis.streamService.model;
 
+
 import java.util.Date;
 
-public class BidEvent {
 
+public class BidEvent {
     private Integer auctionId;
     private Float  bidPrice;
     private Integer buyerId;

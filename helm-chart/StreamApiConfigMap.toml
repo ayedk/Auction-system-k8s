@@ -14,6 +14,6 @@ producer.bootstrap-servers: kafka:9092
 
 # consumer configs
 consumer.bootstrap-servers: kafka:9092
-downstream.consumer.group-id: notif-group
-upstream.consumer.group-id: bid-group
+downstream.consumer.group-id: downstream-out-group
+upstream.consumer.group-id: upstream-out-group
 consumer.auto-offset-reset: earliest
