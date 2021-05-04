@@ -61,15 +61,15 @@ This folder contains a kafka ui kubernetes deployment and service that we will u
 Clone this repositry and follow the further steps :
 * Create a kubernetes cluster :\
 **```minikube start --memory=5g```**
-* Install the helm chart by switching to the helm-chart directory an running the following command :
-* **```helm install auction-system ./```**
-* Forward the upstream service traffic from the cluster to your host machine using the commmand below :
-* **```kubectl --namespace default port-forward svc/upstream 8080```**
-* Switch to the script folder and run the following command this will generate a random number of bids to the upstream service :
-* **```npm install```**
-* **```node script.js```**
+* Install the helm chart by switching to the helm-chart directory an running the following command :\
+**```helm install auction-system ./```**
+* Forward the upstream service traffic from the cluster to your host machine using the commmand below :\
+**```kubectl --namespace default port-forward svc/upstream 8080```**
+* Switch to the script folder and run the following command this will generate a random number of bids to the upstream service :\
+**```npm install```**
+**```node script.js```**
 * Deploy a kafka ui so you can visualise kafka topics :
-* Copy the content of the deployment.yaml and service.yaml and deploy them using the dashboard :
-* Forward the kafka-ui service traffic from the cluster to your host machine using the commmand below :
-* **```kubectl --namespace default port-forward svc/kafka-ui 9000```**
+* Copy the content of the deployment.yaml and service.yaml and deploy them using kubernetes dashboard :
+* Forward the kafka-ui service traffic from the cluster to your host machine using the commmand below :\
+**```kubectl --namespace default port-forward svc/kafka-ui 9000```**
 * Navigate to: http://localhost:9000
