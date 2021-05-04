@@ -58,7 +58,7 @@ This folder contains a kafka ui kubernetes deployment and service that we will u
 * 2-Unpack it.
 * 3-Find the helm binary in the unpacked directory, and add it to the envirement variabale path so you can execute the helm command from any terminal.
 ## Usage
-Clone this repositry and follow the further steps :
+* Clone this repositry and follow the further steps :
 * Create a kubernetes cluster :
   **```minikube start --memory=5g```**
 * Install the helm chart by switching to the helm-chart directory an running the following command :
