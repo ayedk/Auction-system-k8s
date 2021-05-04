@@ -60,7 +60,7 @@ This folder contains a kafka ui kubernetes deployment and service that we will u
 ## Usage
 Clone this repositry and follow the further steps :
 Create a kubernetes cluster :/
-* **```minikube start --memory=5g```**
+**```minikube start --memory=5g```**
 * Install the helm chart by switching to the helm-chart directory an running the following command :
 * **```helm install auction-system ./```**
 * Forward the upstream service traffic from the cluster to your host machine using the commmand below :
