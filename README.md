@@ -87,5 +87,8 @@ Clone this repositry and follow the further steps :
 **```helm install grafana grafana/grafana```**
 * Access Grafana dashboard at http://localhost:3000 :\
 **```kubectl --namespace monitoring port-forward svc/grafana 3000:80```**
-* Connect prometheus to grafana :
-click the sitting icon in the grafana dashboard ![image](https://user-images.githubusercontent.com/40581620/117111861-213d0b80-ad80-11eb-964e-c51815d437fc.png) 
+* Connect prometheus to grafana :\
+Click the Sitting icon in the grafana dashboard ![image](https://user-images.githubusercontent.com/40581620/117111861-213d0b80-ad80-11eb-964e-c51815d437fc.png) and chose Data Sources then from the list chose prometheus and in the url put http://prometheus-server:80 then click save.
+* Import Grafana Dashboards :\
+Click the Add icon in the grafana dashboard  ![image](https://user-images.githubusercontent.com/40581620/117112428-f3a49200-ad80-11eb-9098-1689cd54ea01.png) and chose import thet copy and paste the content of grafana-jvm-dashboard.json file inside Import via panel json input then click load, for the other dashbord in the grafana-node-dashboard.json
+just do the same.
