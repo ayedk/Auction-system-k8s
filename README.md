@@ -72,7 +72,7 @@ Clone this repositry and follow the further steps :
 **```kubectl apply -f ./kafka-ui```**
 * Access kafka UI at http://localhost:9000 :\
 **```kubectl --namespace default port-forward svc/kafka-ui 9000```**
-Setting up monitoring :
+* ## Setting up monitoring :
 * Setup Prometheus using helm :\
 **```kubectl create namespace monitoring```**\
 **```helm repo add prometheus-community https://prometheus-community.github.io/helm-charts```**\
