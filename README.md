@@ -87,4 +87,5 @@ Clone this repositry and follow the further steps :
 **```helm install grafana grafana/grafana```**
 * Access Grafana dashboard at http://localhost:3000 :\
 **```kubectl --namespace monitoring port-forward svc/grafana 3000:80```**
-* Import grafana dashbord :
+* Connect prometheus to grafana :
+click the sitting icon in the grafana dashboard ![image](https://user-images.githubusercontent.com/40581620/117111861-213d0b80-ad80-11eb-964e-c51815d437fc.png) 
