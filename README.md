@@ -69,17 +69,21 @@ Clone this repositry and follow the further steps :
 **```npm install```**
 **```node script.js```**
 * Deploy a kafka ui so you can visualise kafka topics :\
-Copy the content of the deployment.yaml and service.yaml and deploy them using kubernetes dashboard\
-Forward the kafka-ui service traffic from the cluster to your host machine using the commmand below\
+**```kubectl apply -f ./kafka-ui```**
+* Access kafka UI at http://localhost:9000 :\
 **```kubectl --namespace default port-forward svc/kafka-ui 9000```**
-* Navigate to: http://localhost:9000
 * Setup Prometheus using helm :\
 **```kubectl create namespace monitoring```**\
 **```helm repo add prometheus-community https://prometheus-community.github.io/helm-charts```**\
 **```helm repo add kube-state-metrics https://kubernetes.github.io/kube-state-metrics```**\
 **```helm repo update```**\
 **```helm install --namespace monitoring  prometheus --set server.global.scrape_interval=10s,server.global.scrape_timeout=5s prometheus-community/prometheus```**
-* Setup Grafana usinf helm :\
+* Access Prometheus UI at http://localhost:5000 :\
+**```kubectl --namespace monitoring port-forward svc/prometheus-server 5000:80```**
+* Setup Grafana using helm :\
 **```helm repo add grafana https://grafana.github.io/helm-charts```**\
 **```helm repo update```**\
 **```helm install grafana grafana/grafana```**
+* Access Grafana dashboard at http://localhost:3000 :\
+**```kubectl --namespace monitoring port-forward svc/grafana 3000:80```**
+* Import grafana dashbord :
