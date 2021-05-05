@@ -71,7 +71,7 @@ This folder contains a kafka ui kubernetes deployment and service that we will u
 * Deploy a kafka ui so you can visualise kafka topics :\
 **```kubectl apply -f ./kafka-ui```**
 * Access kafka UI at http://localhost:9000 :\
-**```kubectl --namespace default port-forward svc/kafka-ui 9000```**
+**```kubectl --namespace default port-forward svc/kafka-ui 9000```**\
 **Setting up monitoring** :
 * Setup Prometheus using helm :\
 **```kubectl create namespace monitoring```**\
