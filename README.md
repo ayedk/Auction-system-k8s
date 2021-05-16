@@ -78,7 +78,7 @@ Clone this repositry and follow the further steps :
 **```helm repo add prometheus-community https://prometheus-community.github.io/helm-charts```**\
 **```helm repo add kube-state-metrics https://kubernetes.github.io/kube-state-metrics```**\
 **```helm repo update```**\
-**```helm install --namespace monitoring  prometheus --set server.global.scrape_interval=10s,server.global.scrape_timeout=5s prometheus-community/prometheus```**
+**```helm install --namespace monitoring  prometheus --set server.global.scrape_interval=10s,server.global.scrape_timeout=5s,kubeStateMetrics.enabled=false,alertmanager.enabled=false,pushgateway.enabled=false prometheus-community/prometheus```**
 * Access Prometheus UI at http://localhost:5000 :\
 **```kubectl --namespace monitoring port-forward svc/prometheus-server 5000:80```**
 * Setup Grafana using helm :\
