@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Service
 public class AuctionService {
@@ -23,5 +24,10 @@ public class AuctionService {
     public void addAuction(Auction auctionRecord)
     {
         auctionRepository.save(auctionRecord);
+    }
+
+    public Auction getAuctionById(Integer id){
+        return auctionRepository.findById(id);
+
     }
 }

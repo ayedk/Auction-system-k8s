@@ -9,24 +9,21 @@ import { Auction } from '../../auction.model';
 })
 export class AuctionItemComponent implements OnInit {
   @Input() auction: Auction;
-  interval;
-  timeLeft: number;
   constructor(private router:Router) { }
-  startTimer() {
-    this.interval = setInterval(() => {
-      if(this.timeLeft > 0) {
-        this.timeLeft--;
-      } else {
-        this.timeLeft = 60;
-      }
-    },1000)
-  }
+  day;
+  hours;
+  minutes;
+  seconds;
+
   ngOnInit(): void {
-    this.timeLeft = this.auction.endDate.getTime() - this.auction.startDate.getTime()
-    this.startTimer()
+    this.day = new Date(this.auction.endDate).getDay();
+    this.hours = new Date(this.auction.endDate).getHours();
+    this.minutes = new Date(this.auction.endDate).getMinutes();
+    this.seconds = new Date(this.auction.endDate).getSeconds();
   }
 
-  onSelect(auction:Auction){
-    this.router.navigate(['/auctions',auction.id]);
+
+  onSelect(){
+    this.router.navigate(['/auctions',this.auction.id]);
   }
 }

@@ -4,8 +4,10 @@ package com.fis.downStream.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fis.downStream.model.Bid;
+import com.fis.downStream.model.Notification;
 import com.fis.downStream.model.NotificationEvent;
 import com.fis.downStream.service.BidService;
+import com.fis.downStream.service.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -22,6 +24,8 @@ public class NotificationEventController {
 
     @Autowired
     private KafkaTemplate<String, NotificationEvent> messageKafkaTemplate;
+    @Autowired
+    private NotificationService notificationService;
     @Autowired
     private BidService bidService;
     @Value("${downstream.connection.out.queue}")
@@ -47,8 +51,10 @@ public class NotificationEventController {
                 content.append(" by Buyer Id: ");
                 content.append(bid.getBuyerId());
                 Date timestamp = new Date();
-                NotificationEvent notification = new NotificationEvent(bid.getAuctionId(),content.toString(),timestamp);
-                messageKafkaTemplate.send(downStreamInQueue,"key-"+notification.getReceiverId().toString() ,notification);
+                NotificationEvent notificationEvent = new NotificationEvent(bid.getAuctionId(),content.toString(),timestamp);
+                Notification notification = new Notification(bid.getAuctionId(),content.toString(),timestamp);
+                notificationService.addNotification(notification);
+                messageKafkaTemplate.send(downStreamInQueue,"key-"+notificationEvent.getReceiverId().toString() ,notificationEvent);
             }
 
         }

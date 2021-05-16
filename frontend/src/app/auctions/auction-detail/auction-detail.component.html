@@ -1,32 +1,32 @@
-<div>
-    <div>
-        <img src="{{ auction.imagePath }}" alt="">
-        <div>
-            <label for="">Title: {{ auction.title }}</label>
-            <label for="">Time Left: {{ timeLeft }}</label>
-            <label for="">Price: $</label>
-            <p>Description: {{ auction.description }} </p>
-            <button mat-button>Place a Bid</button>
+<div class="show">
+    <div class="container">
+        <div class="one">
+            <img src="{{ auction?.imagePath }}" alt="" style="width: 300px; height: 300px;">
+        </div>
+        <div class="tow">
+            <label for="" style="display: block;">Title: {{ auction?.title }}</label>
+            <label for="" style="display: block;">End Date: {{ month }}m | {{ day }}d | {{ hours }}h | {{ minutes }}m | {{ seconds }}s</label>
+            <label for="" style="display: block;">Price: $</label>
+            <p>Description: {{ auction?.description }} filter() calls a provided callbackFn function once for each element in an array, and constructs a new array of all the values for which callbackFn returns a value that coerces to true. callbackFn is invoked only for indexes of the array which have assigned values; it is not invoked for indexes which have been deleted or which have never been assigned values. Array elements which do not pass the callbackFn test are skipped, and are not included in the new array.
+
+                callbackFn is invoked with three arguments:</p>
+            <button mat-button (click)="onSelect()" class="btn">Place a Bid</button>
         </div>
     </div>
     <table mat-table [dataSource]="bids" class="mat-elevation-z8">
-        <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef> Id. </th>
-            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-        </ng-container>
-        <ng-container matColumnDef="auction_id">
+        <ng-container matColumnDef="auctionId">
             <th mat-header-cell *matHeaderCellDef> Auction ID </th>
             <td mat-cell *matCellDef="let element"> {{element.auctionId}} </td>
         </ng-container>
-        <ng-container matColumnDef="buyer_id">
+        <ng-container matColumnDef="buyerId">
             <th mat-header-cell *matHeaderCellDef> Buyer ID </th>
             <td mat-cell *matCellDef="let element"> {{element.buyerId}} </td>
         </ng-container>
-        <ng-container matColumnDef="price">
+        <ng-container matColumnDef="bidPrice">
             <th mat-header-cell *matHeaderCellDef> Price </th>
             <td mat-cell *matCellDef="let element"> {{element.bidPrice}} </td>
         </ng-container>
-        <ng-container matColumnDef="price">
+        <ng-container matColumnDef="bidDate">
             <th mat-header-cell *matHeaderCellDef> Bid Date </th>
             <td mat-cell *matCellDef="let element"> {{element.bidDate}} </td>
         </ng-container>

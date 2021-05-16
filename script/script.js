@@ -6,7 +6,7 @@ setInterval(
     const options = {
         hostname: 'localhost',
         port: 8080,
-        path: '/bid/publisher',
+        path: '/api/bids',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

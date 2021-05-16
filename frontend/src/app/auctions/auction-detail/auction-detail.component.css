@@ -1,3 +1,27 @@
 table {
     width: 100%;
   }
+
+.show{
+  margin: 30px 30px 30px 30px;
+  
+}
+.container {
+  width: 80%;
+  
+}
+
+.btn {
+  position: absolute;
+  right: 0;
+  background: #3f51b5;
+  color: white;
+}
+.one{
+  float: left;
+}
+.tow{
+  position:relative;
+}
+
+.mat-elevation-z8{box-shadow: none;}

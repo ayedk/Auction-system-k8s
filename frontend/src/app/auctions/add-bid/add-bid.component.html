@@ -1,21 +1,12 @@
-<form class="example-form">
-
-    <table class="example-full-width" cellspacing="0"><tr>
-        <mat-form-field class="example-full-width">
-            <mat-label>Auction ID (disabled)</mat-label>
-            <input matInput disabled [value]="auction_id">
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <mat-label>User ID (disabled)</mat-label>
-            <input matInput disabled [value]="user_id">
-        </mat-form-field>
-    </tr></table>
-  
-    <p>
-      <mat-form-field class="example-full-width">
-        <mat-label>Price $</mat-label>
-        <input matInput placeholder="Ex. 100$">
-      </mat-form-field>
-    </p>
-  </form>
-  
+<form class="example-form" (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <mat-form-field class="example-full-width">
+    <mat-label>Price</mat-label>
+    <input 
+    type="number" 
+    name="price"
+    ngModel 
+    required 
+    matInput >
+  </mat-form-field>
+  <button type="submit" mat-button color="primary">Go</button>
+</form>

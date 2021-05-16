@@ -10,6 +10,24 @@
     placeholder="Ex. Martin21">
   </mat-form-field>
   <mat-form-field class="example-full-width">
+    <mat-label>First Name</mat-label>
+    <input 
+    type="text"
+    name="firstname"
+    ngModel 
+    required 
+    matInput >
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Last Name</mat-label>
+    <input 
+    type="text"
+    name="lastname"
+    ngModel 
+    required 
+    matInput >
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
     <mat-label>Email</mat-label>
     <input 
       type="email" 
@@ -30,5 +48,5 @@
         matInput 
         placeholder="Ex. 123@mGXY">
   </mat-form-field>
-  <button type="submit" mat-button color="primary">Submit</button>
+  <button type="submit" mat-button color="primary">Sign Up</button>
 </form>

@@ -16,8 +16,10 @@ public class Notification {
     private String content;
     private Date timestamp;
 
-    public Notification(Integer id, Integer receiverId, String content, Date timestamp) {
-        this.id = id;
+    public Notification() {
+    }
+
+    public Notification(Integer receiverId, String content, Date timestamp) {
         this.receiverId = receiverId;
         this.content = content;
         this.timestamp = timestamp;

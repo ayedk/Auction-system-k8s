@@ -8,11 +8,14 @@ import { AuctionsService } from '../auctions.service';
   styleUrls: ['./auction-list.component.css']
 })
 export class AuctionListComponent implements OnInit {
-  //auctions:Auction[];
-  constructor() { }
-  //private auctionsService:AuctionsService
+  auctions:Auction[];
+  constructor(private auctionsService:AuctionsService) { }
+  
   ngOnInit(): void {
-    //this.auctions = this.auctionsService.getAuctions();
+     this.auctionsService.getAuctions().subscribe(resp => {
+      this.auctions  = resp;
+      console.log(resp)
+  });;
   }
 
 }

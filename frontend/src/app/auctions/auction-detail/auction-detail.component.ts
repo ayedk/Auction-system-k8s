@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Auction } from '../auction.model';
 import { AuctionsService } from '../auctions.service';
 import { Bid } from '../bid.model';
@@ -10,27 +10,36 @@ import { Bid } from '../bid.model';
   styleUrls: ['./auction-detail.component.css']
 })
 export class AuctionDetailComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'auctionId','bidPrice', 'buyerId', 'bidDate'];
+  displayedColumns: string[] = ['auctionId', 'buyerId','bidPrice', 'bidDate'];
   bids: Bid[];
-  interval;
-  timeLeft: number;
   auction: Auction;
   constructor(
     private auctionsService:AuctionsService,
-    private route:ActivatedRoute) { }
-  
-  startTimer() {
-    this.interval = setInterval(() => {
-      if(this.timeLeft > 0) {
-        this.timeLeft--;
-      }
-    },1000)
-  }
+    private route:ActivatedRoute,
+    private router:Router) { }
+    month;
+    day;
+    hours;
+    minutes;
+    seconds;
   ngOnInit(): void {
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
-    this.auction = this.auctionsService.getAuctionId(id);
-    this.bids = this.auctionsService.getBidId(id);
-    this.timeLeft = this.auction.endDate.getTime() - this.auction.startDate.getTime()
-    this.startTimer()
+    this.auctionsService.getAuctionId(id).subscribe(resp => {
+      this.auction =  resp;
+      this.month = new Date(this.auction.endDate).getMonth();
+      this.day = new Date(this.auction.endDate).getDay();
+      this.hours = new Date(this.auction.endDate).getHours();
+      this.minutes = new Date(this.auction.endDate).getMinutes();
+      this.seconds = new Date(this.auction.endDate).getSeconds();
+  });;
+    this.auctionsService.getBidByAuctionId(id).subscribe(resp => {
+      this.bids =  resp;
+  });
+  }
+
+  onSelect(){
+    let id = parseInt(this.route.snapshot.paramMap.get('id'));
+    this.router.navigate(['/bids',id]);
+
   }
 }

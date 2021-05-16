@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   }
   onLogin(form:NgForm){
     const authdata = new AuthData()
-    authdata.email=form.value.email;
+    authdata.username=form.value.username;
     authdata.password=form.value.password;
     this.authService.loginUser(authdata);
 

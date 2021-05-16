@@ -1,22 +1,23 @@
 <form class="example-form" (ngSubmit)="onLogin(f)" #f="ngForm">
     <mat-form-field class="example-full-width">
-      <mat-label>Email</mat-label>
+      <mat-label>User Name</mat-label>
       <input 
-      type="email" 
+      type="text" 
+      name="username"
       ngModel 
       required 
-      email
       matInput 
-      placeholder="Ex. pat@example.com">
+      placeholder="Ex. pat123">
     </mat-form-field>
     <mat-form-field class="example-full-width">
         <mat-label>Password</mat-label>
         <input 
-        type="password" 
+        type="password"
+        name="password" 
         ngModel 
         required 
         matInput 
         placeholder="Ex. 123@mGXY">
       </mat-form-field>
-    <button type="submit" mat-button color="primary">Submit</button>
+    <button type="submit" mat-button color="primary">Login</button>
 </form>

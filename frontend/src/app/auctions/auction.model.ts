@@ -1,12 +1,12 @@
 export class Auction{
     public id:number;
-    public imagePath:string;
-    public title: string;
+    public title:string;
+    public imagePath: string;
     public initialPrice: number;
     public description: string;
     public startDate: Date;
     public endDate: Date;
-    constructor(id:number,path:string,title:string,init_pr:number,description:string,start_d:Date,end_d:Date){
+    constructor(id:number,title:string,path:string,init_pr:number,description:string,start_d:Date,end_d:Date){
         this.id = id;
         this.title = title;
         this.imagePath = path;

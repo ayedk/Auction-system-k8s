@@ -1,6 +1,7 @@
 package com.fis.upStream.controller;
 
 import com.fis.upStream.model.Auction;
+import com.fis.upStream.model.Bid;
 import com.fis.upStream.service.AuctionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,10 +21,15 @@ public class AuctionController {
         return auctionService.getAllAuctions();
     }
 
+    @GetMapping("{id}")
+    public Auction getAuctionById(@PathVariable(value="id") Integer id)
+    {
+        return auctionService.getAuctionById(id);
+    }
     @PostMapping()
     public String postAuction(@RequestBody Auction auction)
     {
         auctionService.addAuction(auction);
-        return "successfully created";
+        return "Auction successfully created";
     }
 }

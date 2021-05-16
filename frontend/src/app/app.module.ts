@@ -10,6 +10,7 @@ import {MatInputModule} from '@angular/material/input';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { FormsModule }   from '@angular/forms';
 import { AuctionListComponent } from './auctions/auction-list/auction-list.component';
 import { AuctionDetailComponent } from './auctions/auction-detail/auction-detail.component';
@@ -17,6 +18,13 @@ import { AuctionItemComponent } from './auctions/auction-list/auction-item/aucti
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import { AddBidComponent } from './auctions/add-bid/add-bid.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProfileComponent } from './profile/profile.component';
+import {MatListModule} from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './auth/interceptor';
+
 
 @NgModule({
   declarations: [
@@ -27,9 +35,11 @@ import { AddBidComponent } from './auctions/add-bid/add-bid.component';
     AuctionListComponent,
     AuctionDetailComponent,
     AuctionItemComponent,
-    AddBidComponent
+    AddBidComponent,
+    ProfileComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -38,9 +48,14 @@ import { AddBidComponent } from './auctions/add-bid/add-bid.component';
     MatButtonModule,
     FormsModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    MatListModule,
+    MatGridListModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

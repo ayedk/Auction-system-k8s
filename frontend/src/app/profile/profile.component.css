@@ -1,0 +1,10 @@
+table {
+    width: 100%;
+  }
+.mat-elevation-z8{box-shadow: none;width: 100%;}
+
+.grid{
+    margin: auto;
+    margin-top: 50px;
+    width: 95%;
+}
