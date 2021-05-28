@@ -15,7 +15,6 @@ export class AuthService {
       this.http.post("http://localhost:8080/api/users/signup",user)
       .subscribe(
           response => {
-              console.log(response)
               this.router.navigate(['/login']);
             }
           ,err=>{

@@ -29,11 +29,11 @@ public class NotificationController {
     {
         return notificationService.getAllNotifications();
     }
+
     @KafkaListener(
             topics = "${upstream.topic.inQueue}",
             groupId = "${upstream.consumer.group-id}"
     )
-
     public void listen(@Payload String str) throws JsonProcessingException {
         Notification notification = new ObjectMapper().readValue(str, Notification.class);
 

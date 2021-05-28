@@ -20,7 +20,6 @@ export class SignupComponent implements OnInit {
     user.lastname=form.value.lastname;
     user.email=form.value.email;
     user.password=form.value.password;
-    console.log(user)
     this.authService.signupUser(user);
   }
 

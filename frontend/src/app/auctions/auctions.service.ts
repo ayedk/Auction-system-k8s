@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 import { Auction } from "./auction.model";
 import { Bid } from "./bid.model";
 
@@ -9,6 +10,10 @@ import { Bid } from "./bid.model";
 export class AuctionsService{
 
     constructor(private http: HttpClient){}
+
+    egt():Observable<any>{
+        return this.http.get<Auction>("http://localhost:8080/api/auctions")
+    }
 
     getAuctions():any{
         return this.http.get<Auction>("http://localhost:8080/api/auctions")
@@ -35,10 +40,6 @@ export class AuctionsService{
     }
 
     addBid(bid:Bid){
-        this.http.post("http://localhost:8080/api/bids",bid).subscribe(
-            resp=>{
-                console.log(resp)
-            }
-        )
+        this.http.post("http://localhost:8080/api/bids",bid)
     }
 }

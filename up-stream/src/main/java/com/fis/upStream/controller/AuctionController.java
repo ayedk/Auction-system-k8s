@@ -1,7 +1,6 @@
 package com.fis.upStream.controller;
 
 import com.fis.upStream.model.Auction;
-import com.fis.upStream.model.Bid;
 import com.fis.upStream.service.AuctionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

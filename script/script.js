@@ -12,16 +12,12 @@ setInterval(
           'Content-Type': 'application/json'
         }
       }
-      auctionId = Math.floor(Math.random() * 10) + 1;
-      bidPrice = Math.floor(Math.random() * 100) + 1;
-      buyerId = Math.floor(Math.random() * 10) + 1;
-      bidDate = new Date().getTime();
       
       var bid = {
-          "buyerId": buyerId,
-          "bidPrice": bidPrice,
-          "auctionId": auctionId,
-          "bidDate": bidDate
+          "buyerId": Math.floor(Math.random() * 10) + 1,
+          "bidPrice": Math.floor(Math.random() * 100) + 1,
+          "auctionId": Math.floor(Math.random() * 10) + 1,
+          "bidDate": new Date().getTime()
       }
       data = JSON.stringify(bid)
 
