@@ -12,28 +12,12 @@ export class AuthService {
   
     signupUser(user: User) {
       
-      this.http.post("http://localhost:8080/api/users/signup",user)
-      .subscribe(
-          response => {
-              this.router.navigate(['/login']);
-            }
-          ,err=>{
-            console.log(err)
-          }
-      )
+      return this.http.post<{status,message}>("http://localhost:8080/api/users/signup",user)
+      
     }
   
     loginUser(authdata: AuthData) {
-      this.http.post<{Authorization:String,username:String}>("http://localhost:8080/api/users/login",authdata)
-      .subscribe(
-          response => {
-            console.log(response)
-            localStorage.setItem("token", response.Authorization.slice());
-            localStorage.setItem("username", response.username.slice());
-            //console.log(token)
-            this.router.navigate(['/profile']);
-           }
-      )
+      return this.http.post<{Authorization:String,username:String}>("http://localhost:8080/api/users/login",authdata)
     }
     getUserInfo(username: String):any{
       return this.http.get("http://localhost:8080/api/users/info/"+ username)

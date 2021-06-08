@@ -11,7 +11,7 @@
 	<groupId>com.fis</groupId>
 	<artifactId>streamService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>streamService</name>
+	<name>stream Api</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 import { Auction } from '../auction.model';
 import { AuctionsService } from '../auctions.service';
 import { Bid } from '../bid.model';
@@ -15,6 +16,7 @@ export class AuctionDetailComponent implements OnInit {
   auction: Auction;
   constructor(
     private auctionsService:AuctionsService,
+    private authService:AuthService,
     private route:ActivatedRoute,
     private router:Router) { }
     month;
@@ -39,7 +41,12 @@ export class AuctionDetailComponent implements OnInit {
 
   onSelect(){
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
-    this.router.navigate(['/bids',id]);
+    if(this.authService.isAuthenticated()){
+      this.router.navigate(['/place-bid',id]);
+    }else{
+      this.router.navigate(['/login']);
+    }
+    
 
   }
 }

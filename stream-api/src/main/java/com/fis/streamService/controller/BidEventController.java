@@ -26,6 +26,6 @@ public class BidEventController {
     )
     public void listen(@Payload String str) throws JsonProcessingException {
         BidEvent bidEvent = new ObjectMapper().readValue(str, BidEvent.class);
-        bidkafkaTemplate.send(downStreamInQueue,bidEvent.getAuctionId().toString(), bidEvent);
+        bidkafkaTemplate.send(downStreamInQueue,"key-"+bidEvent.getAuctionId().toString(), bidEvent);
     }
 }

@@ -4,6 +4,8 @@ metadata:
   name: {{ .Values.downstream.name }}
   labels:
     app: {{ .Values.downstream.labels.app }}
+  annotations:
+    "helm.sh/hook-weight": "{{ .Values.downstream.annotations.order }}"
 spec:
   replicas: {{ .Values.downstream.replicaCount }}
   selector:

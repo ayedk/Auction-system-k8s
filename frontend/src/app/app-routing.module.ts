@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full'},
   { path: '', component: AuctionListComponent},
   { path: 'auctions/:id', component: AuctionDetailComponent},
-  { path: 'bids/:id', component: AddBidComponent},
+  { path: 'place-bid/:id', component: AddBidComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'login', component: LoginComponent} 

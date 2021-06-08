@@ -19,7 +19,7 @@
     "startDate":"1616440525356",
     "endDate":"1617058800000",
     "imagePath":"https://bit.ly/3tKrCLL",
-    "description":"very nice bike with a good starting price"
+    "description":"Very nice bike with a good starting price"
 }
 
 {

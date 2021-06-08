@@ -1,23 +1,40 @@
 package com.fis.upStream.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
-@Entity
+@Entity(name = "auction")
+@Table(name = "auction")
 public class Auction {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
+    @Column(name = "initial_price")
     private Float initialPrice;
+    @Column(name = "title")
     private String title;
+    @Column(name = "start_date")
     private Date startDate;
+    @Column(name = "end_date")
     private Date endDate;
+    @Column(name = "image_path")
     private String imagePath;
+    @Column(name = "description")
     private String description;
+
+    public Auction() {
+    }
+
+    public Auction(Float initialPrice, String title, Date startDate, Date endDate, String imagePath, String description) {
+        this.initialPrice = initialPrice;
+        this.title = title;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.imagePath = imagePath;
+        this.description = description;
+    }
 
     public Integer getId() {
         return id;
@@ -71,19 +88,8 @@ public class Auction {
         return description;
     }
 
-    public Auction() {
-    }
-
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public Auction(Float initialPrice, String title, Date startDate, Date endDate, String imagePath, String description) {
-        this.initialPrice = initialPrice;
-        this.title = title;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.imagePath = imagePath;
-        this.description = description;
-    }
 }
+

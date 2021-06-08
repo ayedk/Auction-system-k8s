@@ -4,6 +4,8 @@ metadata:
   name: {{ .Values.zookeeper.name }}
   labels:
     app: {{ .Values.zookeeper.labels.app }}
+  annotations:
+    "helm.sh/hook-weight": "{{ .Values.zookeeper.annotations.order }}"
 spec:
   serviceName: {{ .Values.zookeeper.name }}-headless
   replicas: {{ .Values.zookeeper.replicaCount }}

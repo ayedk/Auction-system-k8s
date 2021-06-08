@@ -10,9 +10,13 @@ streamApi:
   labels:
     app: stream-api
 
+  template:
+    annotations:
+      prometheus.io/scrape: "true"
+      prometheus.io/port: "8888"
+  
   annotations:
-    prometheus.io/scrape: "true"
-    prometheus.io/port: "8888"
+    order: "5"
   replicaCount: 2
   spec:
     name: stream-api
@@ -62,7 +66,9 @@ upstream:
   labels:
     app: upstream
     
-
+  annotations:
+    order: "4"
+  
   replicaCount: 1
   spec:
     name: upstream
@@ -87,6 +93,9 @@ downstream:
   labels:
     app: down-stream
 
+  annotations:
+    order: "6"
+  
 
   replicaCount: 1
   spec:
@@ -104,6 +113,8 @@ kafka:
   labels:
     app: kafka
 
+  annotations:
+    order: "2"
 
   replicaCount: 1
   spec:
@@ -149,6 +160,8 @@ mysql:
   labels:
     app: mysql
 
+  annotations:
+    order: "pre-install"
   
   replicaCount: 1
   spec:
@@ -187,6 +200,9 @@ zookeeper:
   name: zookeeper
   labels:
     app: zookeeper
+
+  annotations:
+    order: "1"
 
   replicaCount: 1
   spec:

@@ -5,11 +5,9 @@
         </div>
         <div class="tow">
             <label for="" style="display: block;">Title: {{ auction?.title }}</label>
-            <label for="" style="display: block;">End Date: {{ month }}m | {{ day }}d | {{ hours }}h | {{ minutes }}m | {{ seconds }}s</label>
-            <label for="" style="display: block;">Price: $</label>
-            <p>Description: {{ auction?.description }} filter() calls a provided callbackFn function once for each element in an array, and constructs a new array of all the values for which callbackFn returns a value that coerces to true. callbackFn is invoked only for indexes of the array which have assigned values; it is not invoked for indexes which have been deleted or which have never been assigned values. Array elements which do not pass the callbackFn test are skipped, and are not included in the new array.
-
-                callbackFn is invoked with three arguments:</p>
+            <label for="" style="display: block;">End Date: {{ day }}d | {{ hours }}h | {{ minutes }}m | {{ seconds }}s</label>
+            <label for="" style="display: block;">Starting Price: {{ auction?.initialPrice }} $</label>
+            <p>Description: {{ auction?.description }} </p>
             <button mat-button (click)="onSelect()" class="btn">Place a Bid</button>
         </div>
     </div>

@@ -39,7 +39,7 @@ export class AuctionsService{
        
     }
 
-    addBid(bid:Bid){
-        this.http.post("http://localhost:8080/api/bids",bid)
+    addBid(bid:Bid):any{
+        return this.http.post<{status,message}>("http://localhost:8080/api/bids",bid)
     }
 }

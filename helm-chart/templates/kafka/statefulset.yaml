@@ -4,6 +4,8 @@ metadata:
   name: {{ .Values.kafka.name }}
   labels:
     app: {{ .Values.kafka.labels.app }}
+  annotations:
+    "helm.sh/hook-weight": "{{ .Values.kafka.annotations.order }}"
 spec:
   serviceName: {{ .Values.kafka.name }}-headless
   replicas: {{ .Values.kafka.replicaCount }}

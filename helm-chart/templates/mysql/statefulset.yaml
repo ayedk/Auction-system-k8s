@@ -4,6 +4,8 @@ metadata:
   name: {{ .Values.mysql.name }}
   labels:
     app: {{ .Values.mysql.labels.app }}
+  annotations:
+    "helm.sh/hook": "{{ .Values.mysql.annotations.order }}"
 spec:
   serviceName: {{ .Values.mysql.name }}-headless
   replicas: {{ .Values.mysql.replicaCount }}

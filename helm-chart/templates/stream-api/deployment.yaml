@@ -4,6 +4,8 @@ metadata:
   name: {{ .Values.streamApi.name }}
   labels:
     app: {{ .Values.streamApi.labels.app }}
+  annotations:
+    "helm.sh/hook-weight": "{{ .Values.streamApi.annotations.order }}"
 spec:
   {{- if not .Values.streamApi.autoscaling.enabled }}
   replicas: {{ .Values.streamApi.replicaCount }}
@@ -14,7 +16,7 @@ spec:
   template:
     metadata:
       annotations:
-        {{- toYaml .Values.streamApi.annotations | nindent 12 }}
+        {{- toYaml .Values.streamApi.template.annotations | nindent 12 }}
       labels:
         app: {{ .Values.streamApi.labels.app }}
     spec:
