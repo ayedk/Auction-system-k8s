@@ -16,8 +16,6 @@ The PoC application is an Online Real Time Auction System that allows sellers to
 This folder contains  the helm chart that we will use to deploy the PoC application to kubernetes cluster.
 * **spring boot services** :
 The three folders up-stream, stream-api and the down-stream is the services for the PoC developed using spring boot.
-* **script** :
-The script folder is contains a javascript script that generates random bid and send them to up stream service using http module.
 * **kafka-ui** :
 This folder contains a kafka ui kubernetes deployment and service that we will use to visualise kafka broker.
 ## Kubernetes Learning Resources :
